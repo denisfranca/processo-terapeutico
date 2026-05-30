@@ -1,88 +1,86 @@
-const LIMITE_MENSAL = 30;
+const https = require('https');
+
+const LIMITE = 30;
 const usos = {};
 
-function getChave(req) {
-  const ip = req.headers['x-forwarded-for'] || 'x';
-  const ua = req.headers['user-agent'] || '';
-  return Buffer.from(ip + ua).toString('base64').slice(0, 32);
+function chave(req) {
+  return Buffer.from((req.headers['x-forwarded-for']||'x')+(req.headers['user-agent']||'')).toString('base64').slice(0,32);
 }
 
-function getMes() {
-  const d = new Date();
-  return d.getFullYear() + '-' + (d.getMonth() + 1);
+function mes() { const d=new Date(); return d.getFullYear()+'-'+(d.getMonth()+1); }
+
+function verificar(k) {
+  const id=k+':'+mes();
+  if(!usos[id])usos[id]=0;
+  return {n:usos[id],ok:usos[id]<LIMITE};
 }
 
-function verificar(chave) {
-  const key = chave + ':' + getMes();
-  if (!usos[key]) usos[key] = 0;
-  return { realizados: usos[key], limite: LIMITE_MENSAL, bloqueado: usos[key] >= LIMITE_MENSAL };
+function registrar(k) {
+  const id=k+':'+mes();
+  if(!usos[id])usos[id]=0;
+  usos[id]++;
 }
 
-function registrar(chave) {
-  const key = chave + ':' + getMes();
-  if (!usos[key]) usos[key] = 0;
-  usos[key]++;
-}
-
-module.exports = async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-  if (req.method === 'OPTIONS') return res.status(200).end();
-  if (req.method !== 'POST') return res.status(405).json({ erro: 'Metodo nao permitido' });
-
-  try {
-    const chave = getChave(req);
-    const lim = verificar(chave);
-
-    if (lim.bloqueado) {
-      return res.status(429).json({
-        erro: 'limite_atingido',
-        mensagem: 'Voce atingiu o limite de ' + LIMITE_MENSAL + ' processos este mes.',
-        realizados: lim.realizados,
-        limite: lim.limite
-      });
-    }
-
-    const body = req.body;
-    if (!body || !body.prompt) return res.status(400).json({ erro: 'Prompt nao informado' });
-
-    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+function chamarAnthropic(prompt, tipo) {
+  return new Promise((resolve, reject) => {
+    const body = JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: tipo==='preco' ? 1500 : 4000,
+      messages: [{ role: 'user', content: prompt }]
+    });
+    const options = {
+      hostname: 'api.anthropic.com',
+      path: '/v1/messages',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'x-api-key': process.env.ANTHROPIC_API_KEY,
-        'anthropic-version': '2023-06-01'
-      },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: body.tipo === 'preco' ? 1500 : 4000,
-        messages: [{ role: 'user', content: body.prompt }]
-      })
-    });
-
-    if (!resp.ok) {
-      const e = await resp.json().catch(function() { return {}; });
-      throw new Error((e.error && e.error.message) || 'Erro ' + resp.status);
-    }
-
-    const dados = await resp.json();
-    const texto = (dados.content || []).map(function(b) { return b.text || ''; }).join('').trim();
-
-    registrar(chave);
-    const limAtual = verificar(chave);
-
-    return res.status(200).json({
-      resultado: texto,
-      uso: {
-        realizados: limAtual.realizados,
-        limite: limAtual.limite,
-        restantes: limAtual.limite - limAtual.realizados
+        'anthropic-version': '2023-06-01',
+        'Content-Length': Buffer.byteLength(body)
       }
+    };
+    const r = https.request(options, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        try {
+          const parsed = JSON.parse(data);
+          if (res.statusCode !== 200) {
+            reject(new Error((parsed.error && parsed.error.message) || 'Erro '+res.statusCode));
+          } else {
+            const texto = (parsed.content||[]).map(b=>b.text||'').join('').trim();
+            resolve(texto);
+          }
+        } catch(e) { reject(e); }
+      });
     });
+    r.on('error', reject);
+    r.write(body);
+    r.end();
+  });
+}
 
-  } catch (err) {
-    return res.status(500).json({ erro: 'Erro interno', mensagem: err.message });
+module.exports = async function(req, res) {
+  res.setHeader('Access-Control-Allow-Origin','*');
+  res.setHeader('Access-Control-Allow-Methods','POST,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers','Content-Type');
+  if(req.method==='OPTIONS') return res.status(200).end();
+  if(req.method!=='POST') return res.status(405).json({erro:'Metodo invalido'});
+
+  try {
+    const k = chave(req);
+    const v = verificar(k);
+    if(!v.ok) return res.status(429).json({erro:'limite_atingido',mensagem:'Limite de '+LIMITE+' processos por mes atingido.',realizados:v.n,limite:LIMITE});
+
+    const {prompt, tipo} = req.body||{};
+    if(!prompt) return res.status(400).json({erro:'Prompt ausente'});
+
+    const texto = await chamarAnthropic(prompt, tipo);
+    registrar(k);
+    const v2 = verificar(k);
+
+    return res.status(200).json({resultado:texto, uso:{realizados:v2.n,limite:LIMITE,restantes:LIMITE-v2.n}});
+  } catch(err) {
+    return res.status(500).json({erro:'Erro interno',mensagem:err.message});
   }
 };
