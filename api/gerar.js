@@ -24,7 +24,7 @@ function registrar(k) {
 function chamarAnthropic(prompt, tipo) {
   return new Promise((resolve, reject) => {
     const body = JSON.stringify({
-      model: 'claude-sonnet-4-5',
+      model: 'claude-haiku-4-5-20251001',
       max_tokens: tipo==='preco' ? 1500 : 4000,
       messages: [{ role: 'user', content: prompt }]
     });
