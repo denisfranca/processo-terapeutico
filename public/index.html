@@ -470,8 +470,7 @@ function buildPromptPreco(){
 }
 
 async function chamarAPI(prompt,tipo){
-  var res=await fetch('https://processo-terapeutico.vercel.apphttps://processo-terapeutico.vercel.app/api/gerar',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:prompt,tipo:tipo||'processo'})});
-  var data=await res.json();
+  var res=await fetch('/api/gerar',{method:'POST',headers:{'var res=await fetch('/api/gerar',{method:'POST',headers:{'
   if(res.status===429)throw new Error('limite_atingido: '+data.mensagem);
   if(!res.ok)throw new Error(data.mensagem||'Erro '+res.status);
   return data.resultado;
