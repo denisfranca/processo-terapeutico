@@ -471,7 +471,7 @@ function buildPromptPreco(){
 
 async function chamarAPI(prompt,tipo){
   var res=await fetch('/api/gerar',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt,tipo})});
-  if(res.status===429)throw new Error('limite_atingido: '+data.mensagem);
+  var data=await res.json();if(res.status===429)throw new Error('limite_atingido: '+data.mensagem);
   if(!res.ok)throw new Error(data.mensagem||'Erro '+res.status);
   return data.resultado;
 }
