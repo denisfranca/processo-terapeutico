@@ -14,7 +14,7 @@
   --borda:rgba(255,255,255,.12);--verde:#5DD87A;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Jost',system-ui,sans-serif;background:var(--az);color:var(--br);min-height:100vh;line-height:1.6}
+body{font-family:'Jost',system-ui,sans-serif;background:var(--az);color:var(--br);min-height:100vh;line-height:1.6;font-size:15px}
 .app{max-width:680px;margin:0 auto;padding:1.5rem 1rem 4rem}
 
 /* HEADER */
@@ -41,8 +41,8 @@ body{font-family:'Jost',system-ui,sans-serif;background:var(--az);color:var(--br
 .card-title{font-size:9px;font-weight:500;color:var(--dou);text-transform:uppercase;letter-spacing:2px;margin-bottom:10px}
 
 /* CAMPOS */
-label{display:block;font-size:9px;font-weight:500;color:var(--dou);text-transform:uppercase;letter-spacing:2px;margin-bottom:6px}
-input[type=text],textarea,select{width:100%;font-family:'Jost',sans-serif;font-size:13px;color:var(--br);background:rgba(255,255,255,.07);border:1px solid var(--borda);border-radius:8px;padding:9px 12px;outline:none;box-sizing:border-box;line-height:1.5;transition:border-color .2s}
+label{display:block;font-size:10px;font-weight:500;color:var(--dou);text-transform:uppercase;letter-spacing:2px;margin-bottom:6px}
+input[type=text],textarea,select{width:100%;font-family:'Jost',sans-serif;font-size:15px;color:var(--br);background:rgba(255,255,255,.07);border:1px solid var(--borda);border-radius:8px;padding:10px 12px;outline:none;box-sizing:border-box;line-height:1.5;transition:border-color .2s}
 input:focus,textarea:focus,select:focus{border-color:var(--dou);background:rgba(255,255,255,.09)}
 textarea{min-height:80px;resize:vertical;line-height:1.6}
 select{cursor:pointer}
@@ -93,13 +93,13 @@ input::placeholder,textarea::placeholder{color:rgba(255,255,255,.2)}
 .res-hero::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:rgba(232,197,90,.05)}
 .res-badge{font-size:9px;font-weight:500;background:rgba(232,197,90,.15);color:var(--dou);padding:3px 12px;border-radius:20px;display:inline-block;margin-bottom:10px;text-transform:uppercase;letter-spacing:2px;border:1px solid var(--dou3)}
 .res-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,4vw,1.8rem);font-weight:300;color:var(--br);margin:0 0 6px;line-height:1.3}
-.res-tag{font-size:13px;color:var(--br3);margin:0 0 14px;line-height:1.6;font-style:italic}
+.res-tag{font-size:14px;color:var(--br3);margin:0 0 14px;line-height:1.6;font-style:italic}
 .res-phases{display:flex;gap:6px;flex-wrap:wrap}
 .res-phase{font-size:10px;background:rgba(232,197,90,.12);color:var(--dou);padding:4px 10px;border-radius:20px;border:1px solid var(--dou3)}
 
 .arco{background:rgba(232,197,90,.07);border:1px solid var(--dou3);border-radius:10px;padding:1rem 1.25rem;margin-bottom:14px}
 .arco-l{font-size:9px;font-weight:500;color:var(--dou);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
-.arco-t{font-size:13px;color:var(--br2);line-height:1.8;font-style:italic}
+.arco-t{font-size:14px;color:var(--br2);line-height:1.8;font-style:italic}
 
 .sess-lbl{font-size:9px;font-weight:500;color:var(--br3);text-transform:uppercase;letter-spacing:2px;margin-bottom:10px}
 .sess-item{border:1px solid var(--borda);border-radius:12px;margin-bottom:8px;background:rgba(255,255,255,.03);overflow:hidden}
@@ -107,8 +107,8 @@ input::placeholder,textarea::placeholder{color:rgba(255,255,255,.2)}
 .sess-head:hover{background:rgba(255,255,255,.05)}
 .sess-num{width:34px;height:34px;background:linear-gradient(135deg,var(--dou3),var(--dou2));border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--az);flex-shrink:0;font-weight:600}
 .sess-info{flex:1}
-.sess-titulo{font-size:14px;font-weight:400;color:var(--br);margin:0 0 3px}
-.sess-meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:11px;color:var(--br3)}
+.sess-titulo{font-size:15px;font-weight:400;color:var(--br);margin:0 0 3px}
+.sess-meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:12px;color:var(--br3)}
 .sess-chev{font-size:16px;color:var(--br3);transition:transform .2s}
 .sess-body{display:none;padding:0 16px 16px;border-top:1px solid var(--borda)}
 .sess-body.open{display:block}
@@ -116,12 +116,12 @@ input::placeholder,textarea::placeholder{color:rgba(255,255,255,.2)}
 .emo{display:flex;align-items:flex-start;gap:10px;margin-top:12px;background:rgba(255,255,255,.04);border-radius:8px;padding:12px}
 .emo-side{flex:1}
 .emo-lbl{font-size:9px;font-weight:500;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}
-.emo-val{font-size:12px;line-height:1.5}
+.emo-val{font-size:13px;line-height:1.5}
 .emo-arr{font-size:18px;color:var(--dou);margin-top:4px;flex-shrink:0}
 
 .chip{background:rgba(255,255,255,.04);border-radius:8px;padding:10px 12px;margin-top:8px}
 .chip-l{font-size:9px;color:var(--br4);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}
-.chip-v{font-size:13px;color:var(--br2);line-height:1.55}
+.chip-v{font-size:14px;color:var(--br2);line-height:1.55}
 
 .proto{margin-top:8px;border:1px solid rgba(107,140,255,.3);border-radius:8px;overflow:hidden}
 .proto-head{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:rgba(107,140,255,.1);cursor:pointer}
@@ -131,17 +131,17 @@ input::placeholder,textarea::placeholder{color:rgba(255,255,255,.2)}
 .proto-body{display:none;padding:12px;background:rgba(107,140,255,.05);border-top:1px solid rgba(107,140,255,.2)}
 .proto-body.open{display:block}
 .proto-body ol{margin:0;padding-left:18px}
-.proto-body li{font-size:13px;color:rgba(147,167,255,.9);line-height:1.65;margin-bottom:8px}
+.proto-body li{font-size:14px;color:rgba(147,167,255,.9);line-height:1.65;margin-bottom:8px}
 .proto-body li:last-child{margin-bottom:0}
 .proto-ref{margin-top:10px;padding-top:10px;border-top:1px solid rgba(107,140,255,.2);font-size:11px;color:var(--br4);font-style:italic}
 
 .tarefa{margin-top:8px;background:rgba(93,216,122,.1);border:1px solid rgba(93,216,122,.3);border-radius:8px;padding:10px 12px}
 .tarefa-l{font-size:9px;font-weight:500;color:var(--verde);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}
-.tarefa-v{font-size:13px;color:rgba(93,216,122,.85);line-height:1.55}
+.tarefa-v{font-size:14px;color:rgba(93,216,122,.85);line-height:1.55}
 
 .alerta{margin-top:8px;background:rgba(232,197,90,.07);border:1px solid var(--dou3);border-radius:8px;padding:10px 12px}
 .alerta-l{font-size:9px;font-weight:500;color:var(--dou3);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}
-.alerta-v{font-size:13px;color:var(--br3);line-height:1.55}
+.alerta-v{font-size:14px;color:var(--br3);line-height:1.55}
 
 .client-box{border:1px solid var(--borda);border-radius:12px;padding:1.25rem;background:rgba(255,255,255,.03);margin-bottom:14px;margin-top:4px}
 
@@ -186,12 +186,90 @@ input::placeholder,textarea::placeholder{color:rgba(255,255,255,.2)}
 
 .badge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px}
 
+/* BOAS-VINDAS */
+.bv-overlay{position:fixed;inset:0;background:rgba(6,13,30,.95);z-index:999;display:flex;align-items:center;justify-content:center;padding:1rem;animation:surgir .4s ease forwards}
+.bv-box{background:linear-gradient(135deg,#0f1e38,#152444);border:1px solid var(--dou3);border-radius:20px;padding:2rem 1.5rem;max-width:420px;width:100%;text-align:center}
+.bv-icon{font-size:2.5rem;margin-bottom:1rem}
+.bv-titulo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--br);margin-bottom:.5rem}
+.bv-sub{font-size:13px;color:var(--br3);margin-bottom:1.5rem;line-height:1.6}
+.bv-steps{display:flex;flex-direction:column;gap:10px;margin-bottom:1.5rem;text-align:left}
+.bv-step{display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,.04);border-radius:10px;padding:10px 14px}
+.bv-num{width:26px;height:26px;background:linear-gradient(135deg,var(--dou3),var(--dou2));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--az);flex-shrink:0}
+.bv-txt{font-size:13px;color:var(--br2);line-height:1.5}
+.bv-txt strong{color:var(--dou);display:block;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
+
+/* PAYWALL */
+.pw-overlay{position:fixed;inset:0;background:rgba(6,13,30,.97);z-index:999;display:flex;align-items:center;justify-content:center;padding:1rem;animation:surgir .4s ease forwards;overflow-y:auto}
+.pw-box{background:linear-gradient(135deg,#0f1e38,#152444);border:1px solid var(--dou3);border-radius:20px;padding:2rem 1.5rem;max-width:420px;width:100%;text-align:center;margin:auto}
+.pw-icon{font-size:2.5rem;margin-bottom:1rem}
+.pw-titulo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--br);margin-bottom:.5rem}
+.pw-sub{font-size:13px;color:var(--br3);margin-bottom:1.5rem;line-height:1.6}
+.pw-oferta{background:rgba(232,197,90,.08);border:1px solid var(--dou3);border-radius:14px;padding:1.25rem;margin-bottom:1.25rem}
+.pw-oferta-lbl{font-size:10px;font-weight:600;color:var(--dou);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
+.pw-oferta-txt{font-size:13px;color:var(--br2);line-height:1.6;margin-bottom:14px}
+.pw-divisor{display:flex;align-items:center;gap:10px;margin:1.25rem 0;font-size:11px;color:var(--br4);text-transform:uppercase;letter-spacing:1px}
+.pw-divisor::before,.pw-divisor::after{content:'';flex:1;height:1px;background:var(--borda)}
+.pw-codigo-row{display:flex;gap:8px}
+.pw-codigo-row input{flex:1}
+.pw-erro-cod{font-size:12px;color:#EF9A9A;margin-top:8px;display:none}
+
 @media(max-width:520px){.fmt-grid,.preco-grid,.faixas{grid-template-columns:1fr}}
 @media print{.no-print{display:none!important}}
 </style>
 </head>
 <body>
 <div class="app">
+
+<!-- BOAS-VINDAS -->
+<div class="bv-overlay" id="boasVindas">
+  <div class="bv-box">
+    <div class="bv-icon">✦</div>
+    <div class="bv-titulo">Processo Terapêutico Pro</div>
+    <div class="bv-sub">Crie processos terapêuticos estruturados e profissionais em minutos — sem precisar de tecnologia.</div>
+    <div class="bv-steps">
+      <div class="bv-step">
+        <div class="bv-num">1</div>
+        <div class="bv-txt"><strong>Seu perfil</strong>Informe seu nome, abordagem e público que você atende</div>
+      </div>
+      <div class="bv-step">
+        <div class="bv-num">2</div>
+        <div class="bv-txt"><strong>Suas técnicas</strong>Selecione as técnicas que você usa no seu trabalho</div>
+      </div>
+      <div class="bv-step">
+        <div class="bv-num">3</div>
+        <div class="bv-txt"><strong>O cliente</strong>Descreva a queixa e o objetivo terapêutico</div>
+      </div>
+      <div class="bv-step">
+        <div class="bv-num">4</div>
+        <div class="bv-txt"><strong>Resultado</strong>Receba um processo completo com sessões, protocolos e precificação</div>
+      </div>
+    </div>
+    <button class="btnm" style="width:100%;padding:14px;font-size:14px" onclick="fecharBoasVindas()">✦ Começar agora</button>
+  </div>
+</div>
+
+<!-- PAYWALL -->
+<div class="pw-overlay" id="paywall" style="display:none">
+  <div class="pw-box">
+    <div class="pw-icon">✨</div>
+    <div class="pw-titulo">Você já sentiu o poder da ferramenta!</div>
+    <div class="pw-sub">Você usou suas 2 gerações gratuitas. Para continuar criando processos terapêuticos ilimitados, garanta seu acesso completo.</div>
+    <div class="pw-oferta">
+      <div class="pw-oferta-lbl">✦ Acesso completo</div>
+      <div class="pw-oferta-txt">Processos ilimitados, precificação inteligente e protocolos clínicos completos para todos os seus atendimentos.</div>
+      <a href="#" target="_blank" id="linkComprar" class="btnm" style="width:100%;padding:14px;font-size:14px;display:block;text-decoration:none;box-sizing:border-box">✦ Garantir acesso completo</a>
+    </div>
+    <div class="pw-divisor">já comprou?</div>
+    <div class="campo" style="text-align:left">
+      <label>Digite seu código de acesso</label>
+      <div class="pw-codigo-row">
+        <input type="text" id="codigoAcesso" placeholder="Ex: PROSPERIDADE2026"/>
+        <button class="btnm" onclick="validarCodigo()">Liberar</button>
+      </div>
+      <div class="pw-erro-cod" id="erroCodigo">Código inválido. Verifique e tente novamente.</div>
+    </div>
+  </div>
+</div>
 
 <!-- HEADER -->
 <div class="hdr no-print">
@@ -209,8 +287,8 @@ input::placeholder,textarea::placeholder{color:rgba(255,255,255,.2)}
       <text x="26" y="30" text-anchor="middle" font-family="Georgia,serif" font-size="9" font-weight="bold" fill="#E8C55A" letter-spacing="1">DF</text>
     </svg>
     <div>
-      <div class="hdr-nome">Denis França <span style="opacity:.4;margin:0 6px">|</span> <span style="font-size:.85em;color:var(--dou);letter-spacing:1px;font-style:normal">Profissão Reiki</span></div>
-      <div class="hdr-sub">Processo Terapêutico Pro</div>
+      <div class="hdr-nome">Denis França <span style="opacity:.4;margin:0 6px">|</span> <span style="font-size:.85em;color:var(--dou);letter-spacing:1px;font-style:normal">Terapeuta</span></div>
+      <div class="hdr-sub" style="font-size:clamp(1rem,3vw,1.35rem);font-weight:500;color:var(--dou2);letter-spacing:.5px">Processo Terapêutico Pro</div>
     </div>
     <button class="btn-salvos" onclick="toggleSalvos()" id="btnSalvos">📂 Salvos</button>
   </div>
@@ -254,21 +332,35 @@ input::placeholder,textarea::placeholder{color:rgba(255,255,255,.2)}
     </div>
     <div class="hint">Clique nas sugestões ou digite sua técnica</div>
     <div class="presets" id="presets">
-      <button class="preset" onclick="addP(this)">EFT</button><button class="preset" onclick="addP(this)">EMDR</button>
-      <button class="preset" onclick="addP(this)">PNL</button><button class="preset" onclick="addP(this)">TCC</button>
-      <button class="preset" onclick="addP(this)">Mindfulness</button><button class="preset" onclick="addP(this)">Hipnoterapia</button>
-      <button class="preset" onclick="addP(this)">Constelação Familiar</button><button class="preset" onclick="addP(this)">Respiração Consciente</button>
-      <button class="preset" onclick="addP(this)">Sofrologia</button><button class="preset" onclick="addP(this)">Arteterapia</button>
-      <button class="preset" onclick="addP(this)">Ancoragem</button><button class="preset" onclick="addP(this)">Ressignificação</button>
-      <button class="preset" onclick="addP(this)">Escuta Ativa</button><button class="preset" onclick="addP(this)">ACT</button>
-      <button class="preset" onclick="addP(this)">Focusing</button><button class="preset" onclick="addP(this)">Bioenergética</button>
-      <button class="preset" onclick="addP(this)">Psicodrama</button><button class="preset" onclick="addP(this)">Terapia do Esquema</button>
-      <button class="preset" onclick="addP(this)">Reiki</button><button class="preset" onclick="addP(this)">Auriculoterapia</button>
-      <button class="preset" onclick="addP(this)">Acupuntura</button><button class="preset" onclick="addP(this)">Reflexologia</button>
-      <button class="preset" onclick="addP(this)">Florais de Bach</button><button class="preset" onclick="addP(this)">Musicoterapia</button>
-      <button class="preset" onclick="addP(this)">Yoga Terapêutico</button><button class="preset" onclick="addP(this)">Biodança</button>
-      <button class="preset" onclick="addP(this)">Cromoterapia</button><button class="preset" onclick="addP(this)">Tarô Terapêutico</button>
-      <button class="preset" onclick="addP(this)">Mesa Radiônica</button><button class="preset" onclick="addP(this)">Thetahealing</button>
+      <button class="preset" onclick="addP(this)">Acupuntura</button>
+      <button class="preset" onclick="addP(this)">Ancoragem</button>
+      <button class="preset" onclick="addP(this)">Arteterapia</button>
+      <button class="preset" onclick="addP(this)">Auriculoterapia</button>
+      <button class="preset" onclick="addP(this)">Biodança</button>
+      <button class="preset" onclick="addP(this)">Bioenergética</button>
+      <button class="preset" onclick="addP(this)">Breathwork</button>
+      <button class="preset" onclick="addP(this)">Constelação Familiar</button>
+      <button class="preset" onclick="addP(this)">Cromoterapia</button>
+      <button class="preset" onclick="addP(this)">EFT</button>
+      <button class="preset" onclick="addP(this)">Florais de Bach</button>
+      <button class="preset" onclick="addP(this)">Geoterapia</button>
+      <button class="preset" onclick="addP(this)">Hipnoterapia</button>
+      <button class="preset" onclick="addP(this)">Imposição de Mãos</button>
+      <button class="preset" onclick="addP(this)">Meditação Guiada</button>
+      <button class="preset" onclick="addP(this)">Mesa Radiônica</button>
+      <button class="preset" onclick="addP(this)">Mindfulness</button>
+      <button class="preset" onclick="addP(this)">Musicoterapia</button>
+      <button class="preset" onclick="addP(this)">Numerologia Terapêutica</button>
+      <button class="preset" onclick="addP(this)">Psicodrama</button>
+      <button class="preset" onclick="addP(this)">Reflexologia</button>
+      <button class="preset" onclick="addP(this)">Reiki</button>
+      <button class="preset" onclick="addP(this)">Regressão de Memória</button>
+      <button class="preset" onclick="addP(this)">Respiração Consciente</button>
+      <button class="preset" onclick="addP(this)">Sofrologia</button>
+      <button class="preset" onclick="addP(this)">Tarô Terapêutico</button>
+      <button class="preset" onclick="addP(this)">Thetahealing</button>
+      <button class="preset" onclick="addP(this)">Xamanismo Terapêutico</button>
+      <button class="preset" onclick="addP(this)">Yoga Terapêutico</button>
     </div>
   </div>
   <div class="brow"><button class="btng" onclick="ir(0)">← Voltar</button><button class="btnm" onclick="ir(2)">Próximo →</button></div>
@@ -301,6 +393,7 @@ input::placeholder,textarea::placeholder{color:rgba(255,255,255,.2)}
     <div class="campo"><label>Extras (opcional)</label><textarea id="fExtras" style="min-height:64px" placeholder="Ex: ritual de encerramento, materiais entre sessões..."></textarea></div>
   </div>
   <div id="erroBox" class="erro" style="display:none"></div>
+  <div id="avisoUso" style="font-size:11px;color:var(--br3);text-align:center;margin-top:10px"></div>
   <div class="brow"><button class="btng" onclick="ir(2)">← Voltar</button><button class="btnm" id="btnGerar" onclick="gerar()">✦ Gerar processo</button></div>
 </div>
 
@@ -333,7 +426,7 @@ input::placeholder,textarea::placeholder{color:rgba(255,255,255,.2)}
 
   <div class="client-box">
     <div class="card-title">✉️ Texto de apresentação ao cliente</div>
-    <div style="font-size:13px;color:var(--br2);line-height:1.85;border-left:2px solid var(--dou3);padding-left:14px;font-style:italic" id="rClientText"></div>
+    <div style="font-size:14px;color:var(--br2);line-height:1.85;border-left:2px solid var(--dou3);padding-left:14px;font-style:italic" id="rClientText"></div>
   </div>
 
   <!-- PRECIFICAÇÃO -->
@@ -401,7 +494,7 @@ input::placeholder,textarea::placeholder{color:rgba(255,255,255,.2)}
 
   <div class="rodape no-print">
     <svg width="28" height="28" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="25" fill="#0a1628" stroke="#E8C55A" stroke-width="1.2"/><circle cx="26" cy="26" r="5" fill="none" stroke="#E8C55A" stroke-width="1.2"/><text x="26" y="30" text-anchor="middle" font-family="Georgia,serif" font-size="9" font-weight="bold" fill="#E8C55A">DF</text></svg>
-    <div class="rodape-txt">Denis França · Profissão Reiki · Processo Terapêutico Pro</div>
+    <div class="rodape-txt">Denis França · Processo Terapêutico Pro</div>
   </div>
 </div>
 
@@ -410,6 +503,46 @@ input::placeholder,textarea::placeholder{color:rgba(255,255,255,.2)}
 <script>
 var step=0,fmt=5,tags=[],resultado=null,precoData=null;
 var salvos=[];try{salvos=JSON.parse(localStorage.getItem('ptp_salvos')||'[]');}catch(e){}
+
+/* ====== ACESSO / PAYWALL ====== */
+var LIMITE_GRATIS=2;
+var CODIGO_ACESSO='PROSPERIDADE2026'; // altere este código quando quiser
+var LINK_COMPRA='https://pay.kiwify.com.br/0CoQg1E'; // troque pelo link do produto
+
+function temAcessoLiberado(){return localStorage.getItem('ptp_liberado')==='1';}
+function usosFeitos(){return parseInt(localStorage.getItem('ptp_usos')||'0',10);}
+function incrementarUso(){localStorage.setItem('ptp_usos',String(usosFeitos()+1));}
+function podeGerar(){return temAcessoLiberado()||usosFeitos()<LIMITE_GRATIS;}
+
+function mostrarPaywall(){
+  document.getElementById('linkComprar').href=LINK_COMPRA;
+  document.getElementById('paywall').style.display='flex';
+}
+function fecharPaywall(){document.getElementById('paywall').style.display='none';}
+
+function validarCodigo(){
+  var v=document.getElementById('codigoAcesso').value.trim();
+  if(v.toUpperCase()===CODIGO_ACESSO.toUpperCase()){
+    localStorage.setItem('ptp_liberado','1');
+    document.getElementById('erroCodigo').style.display='none';
+    fecharPaywall();
+  }else{
+    document.getElementById('erroCodigo').style.display='block';
+  }
+}
+
+function fecharBoasVindas(){
+  var bv=document.getElementById('boasVindas');
+  bv.style.opacity='0';bv.style.transition='opacity .3s';
+  setTimeout(function(){bv.style.display='none';},300);
+  localStorage.setItem('ptp_bv_visto','1');
+}
+// Não mostrar boas-vindas se já viu antes
+if(localStorage.getItem('ptp_bv_visto')){
+  document.addEventListener('DOMContentLoaded',function(){
+    var bv=document.getElementById('boasVindas');if(bv)bv.style.display='none';
+  });
+}
 var MSGS=["Analisando suas técnicas...","Identificando protocolos clínicos...","Construindo o fio narrativo...","Desenhando a progressão emocional...","Criando tarefas entre sessões...","Mapeando sinais de atenção...","Finalizando seu processo..."];
 var MSGS_P=["Analisando seu perfil...","Pesquisando o mercado...","Calculando o valor justo...","Preparando sua estratégia..."];
 var INTENS={leve:{bg:"rgba(93,216,122,.12)",bord:"#5DD87A",txt:"#5DD87A",lbl:"Leve"},media:{bg:"rgba(232,197,90,.12)",bord:"#E8C55A",txt:"#E8C55A",lbl:"Média"},intensa:{bg:"rgba(229,115,115,.12)",bord:"#E57373",txt:"#E57373",lbl:"Intensa"}};
@@ -431,7 +564,16 @@ function ir(n){
   step=n;
   document.getElementById('sec'+n).style.display='block';
   document.getElementById('t'+n).classList.add('active');
+  if(n===3)atualizarAvisoUso();
   window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function atualizarAvisoUso(){
+  var el=document.getElementById('avisoUso');if(!el)return;
+  if(temAcessoLiberado()){el.textContent='✓ Acesso completo liberado';return;}
+  var restantes=LIMITE_GRATIS-usosFeitos();
+  if(restantes>0)el.textContent='🎁 Você tem '+restantes+' '+(restantes===1?'geração gratuita restante':'gerações gratuitas restantes');
+  else el.textContent='Suas gerações gratuitas foram usadas — toque em Gerar para liberar o acesso completo';
 }
 
 function selFmt(el){document.querySelectorAll('.fmt').forEach(function(c){c.classList.remove('sel');});el.classList.add('sel');fmt=parseInt(el.dataset.f);}
@@ -487,6 +629,7 @@ async function gerar(){
   var queixa=document.getElementById('fQueixa').value.trim();
   if(!queixa){showErr('erroBox','Informe a queixa principal antes de continuar.');return;}
   if(!tags.length){showErr('erroBox','Adicione ao menos uma técnica antes de continuar.');return;}
+  if(!podeGerar()){mostrarPaywall();return;}
   hideErr('erroBox');
   document.getElementById('sec3').style.display='none';
   document.getElementById('secLoad').style.display='block';
@@ -500,6 +643,7 @@ async function gerar(){
     clearInterval(loadInt);
     resultado=parsed;
     precoData=null;
+    incrementarUso();
     document.getElementById('secLoad').style.display='none';
     renderResultado(parsed);
   }catch(e){
@@ -541,7 +685,7 @@ function renderResultado(d){
       +'<div class="emo-arr">→</div>'
       +'<div class="emo-side"><div class="emo-lbl" style="color:var(--dou)">O cliente sai</div><div class="emo-val" style="color:var(--dou2);font-weight:500">'+esc(s.emotionalExit||'')+'</div></div></div>'
       +'<div class="chip"><div class="chip-l">Objetivo da sessão</div><div class="chip-v">'+esc(s.objective||'')+'</div></div>'
-      +(hp?'<div class="proto"><div class="proto-head" onclick="togProto('+i+')">'
+      +(hp?'<div class="proto"><div class="proto-head" onclick="togProto('+i+',event)">'
         +'<div><div class="proto-l">📋 Protocolo — '+esc(s.technique)+'</div>'+(proto.duration?'<div class="proto-dur">Duração: '+esc(proto.duration)+'</div>':'')+'</div>'
         +'<span class="proto-chev" id="pchev'+i+'">▾</span></div>'
         +'<div class="proto-body" id="pb'+i+'"><ol>'+proto.steps.map(function(st){return '<li>'+esc(st)+'</li>';}).join('')+'</ol>'
@@ -561,11 +705,11 @@ function renderResultado(d){
 }
 
 function togSess(i){var b=document.getElementById('sb'+i),c=document.getElementById('chev'+i);var o=b.classList.contains('open');b.classList.toggle('open',!o);c.style.transform=o?'':'rotate(180deg)';}
-function togProto(i){var b=document.getElementById('pb'+i),c=document.getElementById('pchev'+i);var o=b.classList.contains('open');b.classList.toggle('open',!o);c.style.transform=o?'':'rotate(180deg)';}
+function togProto(i,ev){if(ev)ev.stopPropagation();var b=document.getElementById('pb'+i),c=document.getElementById('pchev'+i);var o=b.classList.contains('open');b.classList.toggle('open',!o);c.style.transform=o?'':'rotate(180deg)';}
 
 function abrirPreco(){document.getElementById('precoForm').style.display='block';document.getElementById('btnCalc').style.display='none';}
 function fecharPreco(){document.getElementById('precoForm').style.display='none';document.getElementById('btnCalc').style.display='block';}
-function recalcPreco(){document.getElementById('precoRes').style.display='none';document.getElementById('precoForm').style.display='block';document.getElementById('btnCalc').style.display='none';}
+function recalcPreco(){document.getElementById('precoRes').style.display='none';document.getElementById('precoForm').style.display='block';document.getElementById('btnCalc').style.display='none';document.getElementById('precoBtns').style.display='flex';}
 
 async function calcularPreco(){
   if(!document.getElementById('pCidade').value.trim()){showErr('erroPreco','Informe sua cidade.');return;}
@@ -658,6 +802,8 @@ function reiniciar(){
   document.querySelectorAll('.preset').forEach(function(b){b.style.display='';});
   document.querySelectorAll('.fmt').forEach(function(c,i){c.classList.toggle('sel',i===0);});
   fmt=5;document.getElementById('sec4').style.display='none';
+  document.getElementById('btnGerar').disabled=false;
+  hideErr('erroBox');
   document.getElementById('tabsEl').style.display='flex';ir(0);
 }
 </script>
