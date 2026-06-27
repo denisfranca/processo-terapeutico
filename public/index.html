@@ -249,27 +249,6 @@ input::placeholder,textarea::placeholder{color:rgba(255,255,255,.2)}
 </div>
 
 <!-- PAYWALL -->
-<div class="pw-overlay" id="paywall" style="display:none">
-  <div class="pw-box">
-    <div class="pw-icon">✨</div>
-    <div class="pw-titulo">Você já sentiu o poder da ferramenta!</div>
-    <div class="pw-sub">Você usou suas 2 gerações gratuitas. Para continuar criando processos terapêuticos ilimitados, garanta seu acesso completo.</div>
-    <div class="pw-oferta">
-      <div class="pw-oferta-lbl">✦ Acesso completo</div>
-      <div class="pw-oferta-txt">Processos ilimitados, precificação inteligente e protocolos clínicos completos para todos os seus atendimentos.</div>
-      <a href="#" target="_blank" id="linkComprar" class="btnm" style="width:100%;padding:14px;font-size:14px;display:block;text-decoration:none;box-sizing:border-box">✦ Garantir acesso completo</a>
-    </div>
-    <div class="pw-divisor">já comprou?</div>
-    <div class="campo" style="text-align:left">
-      <label>Digite seu código de acesso</label>
-      <div class="pw-codigo-row">
-        <input type="text" id="codigoAcesso" placeholder="Ex: PROSPERIDADE2026"/>
-        <button class="btnm" onclick="validarCodigo()">Liberar</button>
-      </div>
-      <div class="pw-erro-cod" id="erroCodigo">Código inválido. Verifique e tente novamente.</div>
-    </div>
-  </div>
-</div>
 
 <!-- HEADER -->
 <div class="hdr no-print">
@@ -393,7 +372,6 @@ input::placeholder,textarea::placeholder{color:rgba(255,255,255,.2)}
     <div class="campo"><label>Extras (opcional)</label><textarea id="fExtras" style="min-height:64px" placeholder="Ex: ritual de encerramento, materiais entre sessões..."></textarea></div>
   </div>
   <div id="erroBox" class="erro" style="display:none"></div>
-  <div id="avisoUso" style="font-size:11px;color:var(--br3);text-align:center;margin-top:10px"></div>
   <div class="brow"><button class="btng" onclick="ir(2)">← Voltar</button><button class="btnm" id="btnGerar" onclick="gerar()">✦ Gerar processo</button></div>
 </div>
 
@@ -504,32 +482,7 @@ input::placeholder,textarea::placeholder{color:rgba(255,255,255,.2)}
 var step=0,fmt=5,tags=[],resultado=null,precoData=null;
 var salvos=[];try{salvos=JSON.parse(localStorage.getItem('ptp_salvos')||'[]');}catch(e){}
 
-/* ====== ACESSO / PAYWALL ====== */
-var LIMITE_GRATIS=2;
-var CODIGO_ACESSO='PROSPERIDADE2026'; // altere este código quando quiser
-var LINK_COMPRA='https://pay.kiwify.com.br/0CoQg1E'; // troque pelo link do produto
-
-function temAcessoLiberado(){return localStorage.getItem('ptp_liberado')==='1';}
-function usosFeitos(){return parseInt(localStorage.getItem('ptp_usos')||'0',10);}
-function incrementarUso(){localStorage.setItem('ptp_usos',String(usosFeitos()+1));}
-function podeGerar(){return temAcessoLiberado()||usosFeitos()<LIMITE_GRATIS;}
-
-function mostrarPaywall(){
-  document.getElementById('linkComprar').href=LINK_COMPRA;
-  document.getElementById('paywall').style.display='flex';
-}
-function fecharPaywall(){document.getElementById('paywall').style.display='none';}
-
-function validarCodigo(){
-  var v=document.getElementById('codigoAcesso').value.trim();
-  if(v.toUpperCase()===CODIGO_ACESSO.toUpperCase()){
-    localStorage.setItem('ptp_liberado','1');
-    document.getElementById('erroCodigo').style.display='none';
-    fecharPaywall();
-  }else{
-    document.getElementById('erroCodigo').style.display='block';
-  }
-}
+/* ====== SEM PAYWALL — ACESSO LIVRE ====== */
 
 function fecharBoasVindas(){
   var bv=document.getElementById('boasVindas');
@@ -564,7 +517,7 @@ function ir(n){
   step=n;
   document.getElementById('sec'+n).style.display='block';
   document.getElementById('t'+n).classList.add('active');
-  if(n===3)atualizarAvisoUso();
+  if(n===3){}
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
@@ -629,7 +582,6 @@ async function gerar(){
   var queixa=document.getElementById('fQueixa').value.trim();
   if(!queixa){showErr('erroBox','Informe a queixa principal antes de continuar.');return;}
   if(!tags.length){showErr('erroBox','Adicione ao menos uma técnica antes de continuar.');return;}
-  if(!podeGerar()){mostrarPaywall();return;}
   hideErr('erroBox');
   document.getElementById('sec3').style.display='none';
   document.getElementById('secLoad').style.display='block';
@@ -643,7 +595,6 @@ async function gerar(){
     clearInterval(loadInt);
     resultado=parsed;
     precoData=null;
-    incrementarUso();
     document.getElementById('secLoad').style.display='none';
     renderResultado(parsed);
   }catch(e){
